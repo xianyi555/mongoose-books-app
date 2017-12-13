@@ -82,33 +82,28 @@ app.get('/', function (req, res) {
   res.sendFile('views/index.html' , { root : __dirname});
 });
 
-// get all books
-app.get('/api/books', function (req, res) {
-  // send all books as JSON response
-  console.log('books index');
-  res.json(books);
-});
-
 // get one book
 app.get('/api/books/:id', function (req, res) {
   // find one book by its id
-  console.log('books show', req.params);
-  for(var i=0; i < books.length; i++) {
-    if (books[i]._id === req.params.id) {
-      res.json(books[i]);
-      break; // we found the right book, we can stop searching
-    }
-  }
+  // var bookId = req.params.id;
+  // db.Book.findOne({ _id: bookId }, function(err, foundBook){
+  //   res.json(foundBook);
+  // });
+
+
 });
 
 // create new book
 app.post('/api/books', function (req, res) {
   // create new book with form data (`req.body`)
-  console.log('books create', req.body);
-  var newBook = req.body;
-  newBook._id = newBookUUID++;
-  books.push(newBook);
-  res.json(newBook);
+
+
+
+  // console.log('books create', req.body);
+  // var newBook = req.body;
+  // newBook._id = newBookUUID++;
+  // books.push(newBook);
+  // res.json(newBook);
 });
 
 // update book
